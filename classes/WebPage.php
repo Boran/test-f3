@@ -2,10 +2,10 @@
 
 class WebPage {
     function beforeRoute() {
-            echo 'in beforeRoute()<br>';
+            echo 'in WebPage::beforeRoute()<br>';
     }
     function display() {
-            echo 'I cannot object to an object';
+            echo 'Some text About this tool';
     }
     function bar() {
             echo 'bar()';
