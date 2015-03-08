@@ -34,8 +34,6 @@ $logger->write('called index.php');
 // example setting variables
 $f3->set('name','world');
 
-$f3->route('GET /about', 'WebPage->display'); // in classes/WebPage.php
-$f3->route('GET /about/@action', 'WebPage->@action');
 
 $job=new DB\SQL\Mapper($db,'jobcard');
 $job->load(array('jcard_no=?','3'));
@@ -43,6 +41,8 @@ if ($job->dry())
     echo 'No record matching criteria';
 $job->cost_note = 'this is expensive!';
 $job->save();    // write a value to the DB
+
+// note: most routes are set in the config.ini
 
 $f3->route('GET /',
   function() {
@@ -72,16 +72,11 @@ $f3->route('GET /brew/@count',
             echo $f3->get('PARAMS.count').' bottles of beer on the wall.';
 	        }
 	);
-$f3->route('GET|HEAD /obsoletepage',
-    function($f3) {
-            $f3->reroute('/about');
-	        }
-	);
 
 # does not work:
-$f3->route('GET /login','Controller\Auth::login');
+#$f3->route('GET /login','Controller\Auth::login');
 # http://192.168.10.128/f3/get/cart/123
-$f3->map('/cart/@item','Item');  // REST
+#$f3->map('/cart/@item','Item');  // REST
 
 $f3->set('foo','bar');
 $foo=$f3->get('foo');
@@ -92,6 +87,8 @@ $foo=$f3->get('foo');
 echo Template::instance()->render('tpl/footer.htm'); // std page
 $f3->run();
 
+
+// finish up
 if ($debug == 3) {
   #echo $db->log();
   #echo '<br>' 
