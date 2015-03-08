@@ -1,12 +1,80 @@
+<!-- job.htm -->
 <div class="container">
-<div class=hero-unit>
-  <h1>List a few jobs</h1>
-</div>
-<repeat group="{{ @result }}" value="{{ @item }}">
-   <div class="row">
-    <div class=col-xs-1>Job {{@item.jcard_no}}</div>
-    <div class=col-xs-11>{{ @item.Cust_code  }} {{ @item.lastchange  }} {{ @item.cost_note }} </div>
-    <!-- <div class="clearfix visible-md-block"></div>  -->
+  <h3>General</h3>
+  <div class="row">
+    <div class="col-xs-3">
+      <table class="table table-striped"><tbody>
+        <tr><td>Jobcard</td><td>{{@job.Job}}</td></tr>
+        <tr><td>Order</td><td>{{@job.Ord_no}}</td></tr>
+        <tr><td>Del date1</td><td>{{@job.Del_date1}}</td></tr>
+      </tbody></table>
+    </div>
+    <div class="col-xs-3">
+      <table class="table table-striped"><tbody>
+        <tr><td>Colour</td><td>{{@job.Job}}</td></tr>
+        <tr><td>Width</td><td>{{@job.Ord_no}}</td></tr>
+        <tr><td>Length</td><td>{{@job.Del_date1}}</td></tr>
+      </tbody></table>
+    </div>
+    <div class="col-xs-3">
+      <table class="table table-condensed"><tbody>
+        <tr><td>Priority</td><td>{{@job.Job}}</td></tr>
+        <tr><td>Spec</td><td>{{@job.Spec}}</td></tr>
+        <tr><td>Film/bags?</td><td>{{@job.Del_date1}}</td></tr>
+      </tbody></table>
+    </div>
+    <div class="col-xs-3">
+      {{@job.Customer}}
+      <br>
+      Product ref.: {{@job.Print_ref}}
+    </div>
+
+
   </div>
-</repeat>
-</div>
+
+  <h3>Printing</h3>
+  <div class="row">
+    <div class="col-xs-3">
+      <table class="table table-striped"><tbody>
+        <tr><td>Machine</td><td>{{@job.Job}}</td></tr>
+        <tr><td>Material</td><td>{{@job.Ord_no}}</td></tr>
+        <tr><td>Thickness</td><td>{{@job.Del_date1}}</td></tr>
+        <tr><td>Width</td><td>{{@job.Del_date1}}</td></tr>
+        <tr><td>Weight</td><td>{{@job.Del_date1}}</td></tr>
+        <tr><td>Metres</td><td>{{@job.Del_date1}}</td></tr>
+        <tr><td>Plates</td><td>{{@job.Del_date1}}</td></tr>
+      </tbody></table>
+    </div>
+    <div class="col-xs-3">
+      <table class="table"><tbody>
+        <tr><td>Product ref.</td><td>{{@job.Print_ref}}</td></tr>
+        <tr><td>Design</td><td>{{@job.Ord_no}}</td></tr>
+        <tr><td>Sides</td><td>{{@job.Ord_no}}</td></tr>
+        <tr><td>Steroes</td><td>{{@job.Ord_no}}</td></tr>
+        <tr><td>Roll size</td><td>{{@job.Ord_no}}</td></tr>
+        <tr><td>Cylinder</td><td>{{@job.Ord_no}}</td></tr>
+        <tr><td>Eyemark</td><td>{{@job.Ord_no}}</td></tr>
+        <tr><td>Position</td><td>{{@job.Ord_no}}</td></tr>
+        <tr><td>Print</td><td>{{@job.Ord_no}}</td></tr>
+      </tbody></table>
+    </div>
+    <div class="col-xs-3 table-bordered">
+      <table class="table "><tbody>
+        <tr><td>Rewind</td><td>{{@job.Job}}</td></tr>
+        <tr><td>Ink Type</td><td>{{@job.Spec}}</td></tr>
+      </tbody></table>
+    </div>
+    <div class="col-xs-3">
+      <table class="table ">
+      <thead><tr><th>Nr.</th><th>Colour</th><th>Anilox</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>{{@job.Job}}</td><td>{{@job.Job}}</td></tr>
+        <tr><td>2</td><td>{{@job.Spec}}</td><td>{{@job.Job}}</td></tr>
+      </tbody></table>
+    </div>
+
+  </div>
+
+</div> <!-- /container -->
+<!-- end job.htm -->
+

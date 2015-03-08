@@ -1,12 +1,5 @@
 <?php
 
-class Item {
-    function get() { echo "here is an item"; }
-    function post() {}
-    function put() {}
-    function delete() {}
-}
-
 // F3 init
 $f3 = require_once('../fatfree-master/lib/base.php');
 $f3->set('AUTOLOAD', __dir__ . ';classes/');
@@ -60,9 +53,9 @@ $f3->route('GET /',
     echo Template::instance()->render('tpl/job1.htm');
     unset($f3->get('job')->status);  // clear a virtualfield
 
-    // another query
+    // another query: several entries
     $f3->set('result',$db->exec('SELECT * FROM jobcard limit 3'));
-    echo Template::instance()->render('tpl/job.htm');
+    echo Template::instance()->render('tpl/jobs.htm');
   }
 );
 
@@ -73,19 +66,14 @@ $f3->route('GET /brew/@count',
 	        }
 	);
 
-# does not work:
-#$f3->route('GET /login','Controller\Auth::login');
-# http://192.168.10.128/f3/get/cart/123
-#$f3->map('/cart/@item','Item');  // REST
 
 $f3->set('foo','bar');
 $foo=$f3->get('foo');
 
 
-
 // show the page
-echo Template::instance()->render('tpl/footer.htm'); // std page
 $f3->run();
+echo Template::instance()->render('tpl/footer.htm'); // std page
 
 
 // finish up
